@@ -462,6 +462,12 @@ public class InteractListener implements Listener {
 				int tX=Integer.parseInt(numbers[0]);
 				int tY=Integer.parseInt(numbers[1]);
 				int tZ=Integer.parseInt(numbers[2]);
+			} else if ( org.bukkit.ChatColor.stripColor(sign.getLine( 0 )).equalsIgnoreCase("warpdrive:")&& org.bukkit.ChatColor.stripColor(sign.getLine( 1 )).equalsIgnoreCase("planetname")) {
+			if(CraftManager.getInstance().getCraftByPlayer( event.getPlayer() )!=null) {
+				String[] numbers = org.bukkit.ChatColor.stripColor(sign.getLine( 1 )).split(",");
+				int tX=Integer.parseInt(numbers[0]);
+				int tY=Integer.parseInt(numbers[1]);
+				int tZ=Integer.parseInt(numbers[2]);
 
 				if(event.getPlayer().hasPermission( "movecraft." + CraftManager.getInstance().getCraftByPlayer( event.getPlayer()).getType().getCraftName() + ".move")) {					
 					if(CraftManager.getInstance().getCraftByPlayer(event.getPlayer()).getType().getCanTeleport()) {
